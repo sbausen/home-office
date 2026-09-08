@@ -1,0 +1,239 @@
+<title>Escala Home Office</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#f6f4f0;
+  --surface:#ffffff;
+  --ink:#232025;
+  --ink-soft:#6b6570;
+  --line:#e4dfd8;
+  --head:#232025;
+  --head-ink:#f6f4f0;
+  --presencial-bg:#eeece7;
+  --presencial-ink:#4d4954;
+  --homeoffice-bg:#dce8f2;
+  --homeoffice-ink:#20465f;
+  --feriado-bg:#f0d9e8;
+  --feriado-ink:#6b2049;
+  --weekend-bg:#f3ddc9;
+  --weekend-ink:#7a4416;
+  --accent:#c1543f;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1c1a1c;
+    --surface:#252226;
+    --ink:#f1eee9;
+    --ink-soft:#a89fa8;
+    --line:#3a353a;
+    --head:#f1eee9;
+    --head-ink:#1c1a1c;
+    --presencial-bg:#332f34;
+    --presencial-ink:#cfc9d1;
+    --homeoffice-bg:#1f3547;
+    --homeoffice-ink:#a9d0ea;
+    --feriado-bg:#432b3a;
+    --feriado-ink:#eec2dc;
+    --weekend-bg:#463420;
+    --weekend-ink:#f0c896;
+    --accent:#e08a63;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1c1a1c;
+  --surface:#252226;
+  --ink:#f1eee9;
+  --ink-soft:#a89fa8;
+  --line:#3a353a;
+  --head:#f1eee9;
+  --head-ink:#1c1a1c;
+  --presencial-bg:#332f34;
+  --presencial-ink:#cfc9d1;
+  --homeoffice-bg:#1f3547;
+  --homeoffice-ink:#a9d0ea;
+  --feriado-bg:#432b3a;
+  --feriado-ink:#eec2dc;
+  --weekend-bg:#463420;
+  --weekend-ink:#f0c896;
+  --accent:#e08a63;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  padding:48px 24px 64px;
+  display:flex;
+  justify-content:center;
+}
+.sheet{
+  width:100%;
+  max-width:860px;
+}
+header{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-bottom:28px;
+}
+.eyebrow{
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+  font-weight:600;
+}
+h1{
+  font-family:"Space Grotesk", ui-sans-serif, sans-serif;
+  font-size:clamp(28px,4vw,38px);
+  font-weight:700;
+  margin:0;
+  text-wrap:balance;
+  letter-spacing:-.01em;
+}
+.sub{
+  color:var(--ink-soft);
+  font-size:14.5px;
+}
+.legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 18px;
+  margin:22px 0 18px;
+  font-size:13px;
+  color:var(--ink-soft);
+}
+.legend span{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+}
+.swatch{
+  width:11px;height:11px;border-radius:3px;flex:none;
+}
+.table-wrap{
+  overflow-x:auto;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--surface);
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14.5px;
+  min-width:560px;
+}
+thead th{
+  background:var(--head);
+  color:var(--head-ink);
+  text-align:left;
+  font-family:"Space Grotesk", sans-serif;
+  font-weight:600;
+  font-size:12.5px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  padding:13px 18px;
+}
+thead th:not(:first-child){text-align:center;}
+tbody td{
+  padding:11px 18px;
+  border-top:1px solid var(--line);
+  color:var(--ink);
+}
+tbody td:first-child{
+  color:var(--ink-soft);
+  white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+}
+tbody td:not(:first-child){
+  text-align:center;
+  font-weight:500;
+}
+.status{
+  display:inline-block;
+  padding:5px 12px;
+  border-radius:999px;
+  font-size:13px;
+}
+.presencial{background:var(--presencial-bg);color:var(--presencial-ink);}
+.homeoffice{background:var(--homeoffice-bg);color:var(--homeoffice-ink);}
+.feriado{background:var(--feriado-bg);color:var(--feriado-ink);font-weight:600;}
+.weekend{background:var(--weekend-bg);color:var(--weekend-ink);font-weight:600;}
+tr.weekend-row td{opacity:.85;}
+footer{
+  margin-top:22px;
+  font-size:12.5px;
+  color:var(--ink-soft);
+}
+</style>
+
+<div class="sheet">
+  <header>
+    <span class="eyebrow">Setembro 2026</span>
+    <h1>Escala Home Office</h1>
+    <span class="sub">Rodízio semanal — Raphael &amp; Stephan</span>
+  </header>
+
+  <div class="legend">
+    <span><i class="swatch" style="background:var(--homeoffice-bg)"></i>Home office</span>
+    <span><i class="swatch" style="background:var(--presencial-bg)"></i>Presencial</span>
+    <span><i class="swatch" style="background:var(--feriado-bg)"></i>Feriado</span>
+    <span><i class="swatch" style="background:var(--weekend-bg)"></i>Final de semana</span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Raphael</th>
+          <th>Stephan</th>
+        </tr>
+      </thead>
+      <tbody id="body"></tbody>
+    </table>
+  </div>
+
+  <footer>23 dias úteis · 4 finais de semana · 1 feriado (7 de setembro, Independência)</footer>
+</div>
+
+<script>
+const rows = [
+["segunda-feira, 7 de setembro","feriado","Feriado","feriado","Feriado"],
+["terça-feira, 8 de setembro","presencial","Presencial","presencial","Presencial"],
+["quarta-feira, 9 de setembro","presencial","Presencial","presencial","Presencial"],
+["quinta-feira, 10 de setembro","presencial","Presencial","homeoffice","Home office"],
+["sexta-feira, 11 de setembro","homeoffice","Home office","presencial","Presencial"],
+["sábado, 12 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
+["domingo, 13 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
+["segunda-feira, 14 de setembro","presencial","Presencial","presencial","Presencial"],
+["terça-feira, 15 de setembro","homeoffice","Home office","presencial","Presencial"],
+["quarta-feira, 16 de setembro","presencial","Presencial","homeoffice","Home office"],
+["quinta-feira, 17 de setembro","homeoffice","Home office","presencial","Presencial"],
+["sexta-feira, 18 de setembro","presencial","Presencial","homeoffice","Home office"],
+["sábado, 19 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
+["domingo, 20 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
+["segunda-feira, 21 de setembro","presencial","Presencial","presencial","Presencial"],
+["terça-feira, 22 de setembro","presencial","Presencial","homeoffice","Home office"],
+["quarta-feira, 23 de setembro","homeoffice","Home office","presencial","Presencial"],
+["quinta-feira, 24 de setembro","presencial","Presencial","homeoffice","Home office"],
+["sexta-feira, 25 de setembro","homeoffice","Home office","presencial","Presencial"],
+["sábado, 26 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
+["domingo, 27 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
+["segunda-feira, 28 de setembro","presencial","Presencial","presencial","Presencial"],
+["terça-feira, 29 de setembro","presencial","Presencial","homeoffice","Home office"],
+["quarta-feira, 30 de setembro","homeoffice","Home office","presencial","Presencial"],
+];
+
+const tbody = document.getElementById("body");
+rows.forEach(([date,c1,l1,c2,l2])=>{
+  const isWeekend = c1==="weekend";
+  const tr = document.createElement("tr");
+  if(isWeekend) tr.className="weekend-row";
+  tr.innerHTML = `<td>${date}</td>
+    <td><span class="status ${c1}">${l1}</span></td>
+    <td><span class="status ${c2}">${l2}</span></td>`;
+  tbody.appendChild(tr);
+});
+</script>
