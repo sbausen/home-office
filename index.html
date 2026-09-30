@@ -1,7 +1,6 @@
-
-<!-- saved from url=(0175)file:///C:/Users/steba/AppData/Local/Temp/claude/C-%2DUsers-steba-OneDrive-Documentos-Query-s-WMS-Geral/5bce9a81-f430-4e3b-8964-7a3b9ba7ff65/scratchpad/escala_home_office.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Escala Home Office</title>
-<link rel="stylesheet" href="./Escala Home Office_files/css2">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Escala Home Office</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
 :root{
   --bg:#f6f4f0;
@@ -19,7 +18,10 @@
   --feriado-ink:#6b2049;
   --weekend-bg:#f3ddc9;
   --weekend-ink:#7a4416;
+  --ferias-bg:#e3e8d3;
+  --ferias-ink:#42551f;
   --accent:#c1543f;
+  --accent-soft:#f1ddd6;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -38,7 +40,10 @@
     --feriado-ink:#eec2dc;
     --weekend-bg:#463420;
     --weekend-ink:#f0c896;
+    --ferias-bg:#333c22;
+    --ferias-ink:#c4d69f;
     --accent:#e08a63;
+    --accent-soft:#3a2c25;
   }
 }
 :root[data-theme="dark"]{
@@ -57,7 +62,10 @@
   --feriado-ink:#eec2dc;
   --weekend-bg:#463420;
   --weekend-ink:#f0c896;
+  --ferias-bg:#333c22;
+  --ferias-ink:#c4d69f;
   --accent:#e08a63;
+  --accent-soft:#3a2c25;
 }
 *{box-sizing:border-box;}
 body{
@@ -72,12 +80,14 @@ body{
 .sheet{
   width:100%;
   max-width:860px;
+  display:flex;
+  flex-direction:column;
+  gap:44px;
 }
 header{
   display:flex;
   flex-direction:column;
   gap:6px;
-  margin-bottom:28px;
 }
 .eyebrow{
   font-size:12px;
@@ -98,11 +108,17 @@ h1{
   color:var(--ink-soft);
   font-size:14.5px;
 }
+.toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px 20px;
+}
 .legend{
   display:flex;
   flex-wrap:wrap;
   gap:10px 18px;
-  margin:22px 0 18px;
   font-size:13px;
   color:var(--ink-soft);
 }
@@ -113,6 +129,47 @@ h1{
 }
 .swatch{
   width:11px;height:11px;border-radius:3px;flex:none;
+}
+.tabs{
+  display:inline-flex;
+  padding:3px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:9px;
+  flex:none;
+}
+.tabs button{
+  font:inherit;
+  font-family:"IBM Plex Sans", sans-serif;
+  font-size:13px;
+  font-weight:500;
+  color:var(--ink-soft);
+  background:transparent;
+  border:none;
+  border-radius:6px;
+  padding:7px 14px;
+  cursor:pointer;
+}
+.tabs button[aria-pressed="true"]{
+  background:var(--head);
+  color:var(--head-ink);
+}
+.tabs button:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:2px;
+}
+.month{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.month[hidden]{display:none;}
+.month h2{
+  font-family:"Space Grotesk", sans-serif;
+  font-size:18px;
+  font-weight:600;
+  margin:0;
+  letter-spacing:-.01em;
 }
 .table-wrap{
   overflow-x:auto;
@@ -152,6 +209,13 @@ tbody td:not(:first-child){
   text-align:center;
   font-weight:500;
 }
+tr.is-today td:first-child{
+  color:var(--accent);
+  font-weight:600;
+  box-shadow:inset 3px 0 0 var(--accent);
+  padding-left:15px;
+}
+tr[hidden]{display:none;}
 .status{
   display:inline-block;
   padding:5px 12px;
@@ -162,129 +226,176 @@ tbody td:not(:first-child){
 .homeoffice{background:var(--homeoffice-bg);color:var(--homeoffice-ink);}
 .feriado{background:var(--feriado-bg);color:var(--feriado-ink);font-weight:600;}
 .weekend{background:var(--weekend-bg);color:var(--weekend-ink);font-weight:600;}
+.ferias{background:var(--ferias-bg);color:var(--ferias-ink);font-weight:600;}
 tr.weekend-row td{opacity:.85;}
-footer{
-  margin-top:22px;
+.month footer{
   font-size:12.5px;
   color:var(--ink-soft);
 }
+.empty-note{
+  font-size:13.5px;
+  color:var(--ink-soft);
+  padding:18px;
+  text-align:center;
+}
 </style>
 
-</head><body><div class="sheet">
+<div class="sheet">
   <header>
-    <span class="eyebrow">Setembro 2026</span>
+    <span class="eyebrow">Setembro – Outubro 2026</span>
     <h1>Escala Home Office</h1>
     <span class="sub">Rodízio semanal — Raphael &amp; Stephan</span>
   </header>
 
-  <div class="legend">
-    <span><i class="swatch" style="background:var(--homeoffice-bg)"></i>Home office</span>
-    <span><i class="swatch" style="background:var(--presencial-bg)"></i>Presencial</span>
-    <span><i class="swatch" style="background:var(--feriado-bg)"></i>Feriado</span>
-    <span><i class="swatch" style="background:var(--weekend-bg)"></i>Final de semana</span>
+  <div class="toolbar">
+    <div class="legend">
+      <span><i class="swatch" style="background:var(--homeoffice-bg)"></i>Home office</span>
+      <span><i class="swatch" style="background:var(--presencial-bg)"></i>Presencial</span>
+      <span><i class="swatch" style="background:var(--feriado-bg)"></i>Feriado</span>
+      <span><i class="swatch" style="background:var(--weekend-bg)"></i>Final de semana</span>
+      <span><i class="swatch" style="background:var(--ferias-bg)"></i>Férias</span>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Período">
+      <button type="button" id="tab-upcoming" role="tab" aria-pressed="true">A partir de hoje</button>
+      <button type="button" id="tab-all" role="tab" aria-pressed="false">Escala completa</button>
+    </div>
   </div>
 
-  <div class="table-wrap">
-    <table>
-      <thead>
-        <tr>
-          <th>Data</th>
-          <th>Raphael</th>
-          <th>Stephan</th>
-        </tr>
-      </thead>
-      <tbody id="body"><tr><td>segunda-feira, 7 de setembro</td>
-    <td><span class="status feriado">Feriado</span></td>
-    <td><span class="status feriado">Feriado</span></td></tr><tr><td>terça-feira, 8 de setembro</td>
-    <td><span class="status presencial">Presencial</span></td>
-    <td><span class="status presencial">Presencial</span></td></tr><tr><td>quarta-feira, 9 de setembro</td>
-    <td><span class="status presencial">Presencial</span></td>
-    <td><span class="status presencial">Presencial</span></td></tr><tr><td>quinta-feira, 10 de setembro</td>
-    <td><span class="status homeoffice">Home office</span></td>
-    <td><span class="status presencial">Presencial</span></td></tr><tr><td>sexta-feira, 11 de setembro</td>
-    <td><span class="status presencial">Presencial</span></td>
-    <td><span class="status homeoffice">Home office</span></td></tr><tr class="weekend-row"><td>sábado, 12 de setembro</td>
-    <td><span class="status weekend">Final de Semana</span></td>
-    <td><span class="status weekend">Final de Semana</span></td></tr><tr class="weekend-row"><td>domingo, 13 de setembro</td>
-    <td><span class="status weekend">Final de Semana</span></td>
-    <td><span class="status weekend">Final de Semana</span></td></tr><tr><td>segunda-feira, 14 de setembro</td>
-    <td><span class="status presencial">Presencial</span></td>
-    <td><span class="status presencial">Presencial</span></td></tr><tr><td>terça-feira, 15 de setembro</td>
-    <td><span class="status presencial">Presencial</span></td>
-    <td><span class="status homeoffice">Home office</span></td></tr><tr><td>quarta-feira, 16 de setembro</td>
-    <td><span class="status homeoffice">Home office</span></td>
-    <td><span class="status presencial">Presencial</span></td></tr><tr><td>quinta-feira, 17 de setembro</td>
-    <td><span class="status presencial">Presencial</span></td>
-    <td><span class="status homeoffice">Home office</span></td></tr><tr><td>sexta-feira, 18 de setembro</td>
-    <td><span class="status homeoffice">Home office</span></td>
-    <td><span class="status presencial">Presencial</span></td></tr><tr class="weekend-row"><td>sábado, 19 de setembro</td>
-    <td><span class="status weekend">Final de Semana</span></td>
-    <td><span class="status weekend">Final de Semana</span></td></tr><tr class="weekend-row"><td>domingo, 20 de setembro</td>
-    <td><span class="status weekend">Final de Semana</span></td>
-    <td><span class="status weekend">Final de Semana</span></td></tr><tr><td>segunda-feira, 21 de setembro</td>
-    <td><span class="status presencial">Presencial</span></td>
-    <td><span class="status presencial">Presencial</span></td></tr><tr><td>terça-feira, 22 de setembro</td>
-    <td><span class="status homeoffice">Home office</span></td>
-    <td><span class="status presencial">Presencial</span></td></tr><tr><td>quarta-feira, 23 de setembro</td>
-    <td><span class="status presencial">Presencial</span></td>
-    <td><span class="status homeoffice">Home office</span></td></tr><tr><td>quinta-feira, 24 de setembro</td>
-    <td><span class="status homeoffice">Home office</span></td>
-    <td><span class="status presencial">Presencial</span></td></tr><tr><td>sexta-feira, 25 de setembro</td>
-    <td><span class="status presencial">Presencial</span></td>
-    <td><span class="status homeoffice">Home office</span></td></tr><tr class="weekend-row"><td>sábado, 26 de setembro</td>
-    <td><span class="status weekend">Final de Semana</span></td>
-    <td><span class="status weekend">Final de Semana</span></td></tr><tr class="weekend-row"><td>domingo, 27 de setembro</td>
-    <td><span class="status weekend">Final de Semana</span></td>
-    <td><span class="status weekend">Final de Semana</span></td></tr><tr><td>segunda-feira, 28 de setembro</td>
-    <td><span class="status presencial">Presencial</span></td>
-    <td><span class="status presencial">Presencial</span></td></tr><tr><td>terça-feira, 29 de setembro</td>
-    <td><span class="status presencial">Presencial</span></td>
-    <td><span class="status homeoffice">Home office</span></td></tr><tr><td>quarta-feira, 30 de setembro</td>
-    <td><span class="status homeoffice">Home office</span></td>
-    <td><span class="status presencial">Presencial</span></td></tr></tbody>
-    </table>
+  <div class="month" id="month-set">
+    <h2>Setembro</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Data</th><th>Raphael</th><th>Stephan</th></tr>
+        </thead>
+        <tbody id="body-set"></tbody>
+      </table>
+    </div>
+    <footer>23 dias úteis · 4 finais de semana · 1 feriado (7 de setembro, Independência)</footer>
   </div>
 
-  <footer>23 dias úteis · 4 finais de semana · 1 feriado (7 de setembro, Independência)</footer>
+  <div class="month" id="month-out">
+    <h2>Outubro</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Data</th><th>Raphael</th><th>Stephan</th></tr>
+        </thead>
+        <tbody id="body-out"></tbody>
+      </table>
+    </div>
+    <footer>21 dias úteis · 5 finais de semana · 1 feriado (12 de outubro, Nossa Senhora Aparecida) · férias de Stephan de 13 a 31 de outubro</footer>
+  </div>
 </div>
 
 <script>
-const rows = [
-["segunda-feira, 7 de setembro","feriado","Feriado","feriado","Feriado"],
-["terça-feira, 8 de setembro","presencial","Presencial","presencial","Presencial"],
-["quarta-feira, 9 de setembro","presencial","Presencial","presencial","Presencial"],
-["quinta-feira, 10 de setembro","homeoffice","Home office","presencial","Presencial"],
-["sexta-feira, 11 de setembro","presencial","Presencial","homeoffice","Home office"],
-["sábado, 12 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
-["domingo, 13 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
-["segunda-feira, 14 de setembro","presencial","Presencial","presencial","Presencial"],
-["terça-feira, 15 de setembro","presencial","Presencial","homeoffice","Home office"],
-["quarta-feira, 16 de setembro","homeoffice","Home office","presencial","Presencial"],
-["quinta-feira, 17 de setembro","presencial","Presencial","homeoffice","Home office"],
-["sexta-feira, 18 de setembro","homeoffice","Home office","presencial","Presencial"],
-["sábado, 19 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
-["domingo, 20 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
-["segunda-feira, 21 de setembro","presencial","Presencial","presencial","Presencial"],
-["terça-feira, 22 de setembro","homeoffice","Home office","presencial","Presencial"],
-["quarta-feira, 23 de setembro","presencial","Presencial","homeoffice","Home office"],
-["quinta-feira, 24 de setembro","homeoffice","Home office","presencial","Presencial"],
-["sexta-feira, 25 de setembro","presencial","Presencial","homeoffice","Home office"],
-["sábado, 26 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
-["domingo, 27 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
-["segunda-feira, 28 de setembro","presencial","Presencial","presencial","Presencial"],
-["terça-feira, 29 de setembro","presencial","Presencial","homeoffice","Home office"],
-["quarta-feira, 30 de setembro","homeoffice","Home office","presencial","Presencial"],
+const setembro = [
+["2026-09-07","segunda-feira, 7 de setembro","feriado","Feriado","feriado","Feriado"],
+["2026-09-08","terça-feira, 8 de setembro","presencial","Presencial","presencial","Presencial"],
+["2026-09-09","quarta-feira, 9 de setembro","presencial","Presencial","presencial","Presencial"],
+["2026-09-10","quinta-feira, 10 de setembro","homeoffice","Home office","presencial","Presencial"],
+["2026-09-11","sexta-feira, 11 de setembro","presencial","Presencial","homeoffice","Home office"],
+["2026-09-12","sábado, 12 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
+["2026-09-13","domingo, 13 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
+["2026-09-14","segunda-feira, 14 de setembro","presencial","Presencial","presencial","Presencial"],
+["2026-09-15","terça-feira, 15 de setembro","presencial","Presencial","homeoffice","Home office"],
+["2026-09-16","quarta-feira, 16 de setembro","homeoffice","Home office","presencial","Presencial"],
+["2026-09-17","quinta-feira, 17 de setembro","presencial","Presencial","homeoffice","Home office"],
+["2026-09-18","sexta-feira, 18 de setembro","homeoffice","Home office","presencial","Presencial"],
+["2026-09-19","sábado, 19 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
+["2026-09-20","domingo, 20 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
+["2026-09-21","segunda-feira, 21 de setembro","presencial","Presencial","presencial","Presencial"],
+["2026-09-22","terça-feira, 22 de setembro","homeoffice","Home office","presencial","Presencial"],
+["2026-09-23","quarta-feira, 23 de setembro","presencial","Presencial","homeoffice","Home office"],
+["2026-09-24","quinta-feira, 24 de setembro","homeoffice","Home office","presencial","Presencial"],
+["2026-09-25","sexta-feira, 25 de setembro","presencial","Presencial","homeoffice","Home office"],
+["2026-09-26","sábado, 26 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
+["2026-09-27","domingo, 27 de setembro","weekend","Final de Semana","weekend","Final de Semana"],
+["2026-09-28","segunda-feira, 28 de setembro","presencial","Presencial","presencial","Presencial"],
+["2026-09-29","terça-feira, 29 de setembro","presencial","Presencial","homeoffice","Home office"],
+["2026-09-30","quarta-feira, 30 de setembro","homeoffice","Home office","presencial","Presencial"],
 ];
 
-const tbody = document.getElementById("body");
-rows.forEach(([date,c1,l1,c2,l2])=>{
-  const isWeekend = c1==="weekend";
-  const tr = document.createElement("tr");
-  if(isWeekend) tr.className="weekend-row";
-  tr.innerHTML = `<td>${date}</td>
-    <td><span class="status ${c1}">${l1}</span></td>
-    <td><span class="status ${c2}">${l2}</span></td>`;
-  tbody.appendChild(tr);
-});
+const outubro = [
+["2026-10-01","quinta-feira, 1 de outubro","presencial","Presencial","homeoffice","Home office"],
+["2026-10-02","sexta-feira, 2 de outubro","homeoffice","Home office","presencial","Presencial"],
+["2026-10-03","sábado, 3 de outubro","weekend","Final de Semana","weekend","Final de Semana"],
+["2026-10-04","domingo, 4 de outubro","weekend","Final de Semana","weekend","Final de Semana"],
+["2026-10-05","segunda-feira, 5 de outubro","presencial","Presencial","presencial","Presencial"],
+["2026-10-06","terça-feira, 6 de outubro","homeoffice","Home office","presencial","Presencial"],
+["2026-10-07","quarta-feira, 7 de outubro","presencial","Presencial","homeoffice","Home office"],
+["2026-10-08","quinta-feira, 8 de outubro","homeoffice","Home office","presencial","Presencial"],
+["2026-10-09","sexta-feira, 9 de outubro","presencial","Presencial","homeoffice","Home office"],
+["2026-10-10","sábado, 10 de outubro","weekend","Final de Semana","weekend","Final de Semana"],
+["2026-10-11","domingo, 11 de outubro","weekend","Final de Semana","weekend","Final de Semana"],
+["2026-10-12","segunda-feira, 12 de outubro","feriado","Feriado","feriado","Feriado"],
+["2026-10-13","terça-feira, 13 de outubro","presencial","Presencial","ferias","Férias"],
+["2026-10-14","quarta-feira, 14 de outubro","presencial","Presencial","ferias","Férias"],
+["2026-10-15","quinta-feira, 15 de outubro","presencial","Presencial","ferias","Férias"],
+["2026-10-16","sexta-feira, 16 de outubro","homeoffice","Home office","ferias","Férias"],
+["2026-10-17","sábado, 17 de outubro","weekend","Final de Semana","ferias","Férias"],
+["2026-10-18","domingo, 18 de outubro","weekend","Final de Semana","ferias","Férias"],
+["2026-10-19","segunda-feira, 19 de outubro","presencial","Presencial","ferias","Férias"],
+["2026-10-20","terça-feira, 20 de outubro","presencial","Presencial","ferias","Férias"],
+["2026-10-21","quarta-feira, 21 de outubro","presencial","Presencial","ferias","Férias"],
+["2026-10-22","quinta-feira, 22 de outubro","presencial","Presencial","ferias","Férias"],
+["2026-10-23","sexta-feira, 23 de outubro","homeoffice","Home office","ferias","Férias"],
+["2026-10-24","sábado, 24 de outubro","weekend","Final de Semana","ferias","Férias"],
+["2026-10-25","domingo, 25 de outubro","weekend","Final de Semana","ferias","Férias"],
+["2026-10-26","segunda-feira, 26 de outubro","presencial","Presencial","ferias","Férias"],
+["2026-10-27","terça-feira, 27 de outubro","presencial","Presencial","ferias","Férias"],
+["2026-10-28","quarta-feira, 28 de outubro","presencial","Presencial","ferias","Férias"],
+["2026-10-29","quinta-feira, 29 de outubro","presencial","Presencial","ferias","Férias"],
+["2026-10-30","sexta-feira, 30 de outubro","homeoffice","Home office","ferias","Férias"],
+["2026-10-31","sábado, 31 de outubro","weekend","Final de Semana","ferias","Férias"],
+];
+
+function pad(n){return String(n).padStart(2,"0");}
+function todayISO(){
+  const d = new Date();
+  return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+}
+
+function render(rows, elId){
+  const tbody = document.getElementById(elId);
+  const today = todayISO();
+  rows.forEach(([iso,date,c1,l1,c2,l2])=>{
+    const isWeekend = c1==="weekend";
+    const tr = document.createElement("tr");
+    tr.dataset.iso = iso;
+    let cls = isWeekend ? "weekend-row" : "";
+    if(iso === today) cls += " is-today";
+    if(cls) tr.className = cls.trim();
+    tr.innerHTML = `<td>${date}</td>
+      <td><span class="status ${c1}">${l1}</span></td>
+      <td><span class="status ${c2}">${l2}</span></td>`;
+    tbody.appendChild(tr);
+  });
+}
+render(setembro, "body-set");
+render(outubro, "body-out");
+
+const rowsAll = [...document.querySelectorAll("tbody tr")];
+const months = [...document.querySelectorAll(".month")];
+const tabUpcoming = document.getElementById("tab-upcoming");
+const tabAll = document.getElementById("tab-all");
+
+function applyFilter(upcomingOnly){
+  const today = todayISO();
+  rowsAll.forEach(tr=>{
+    tr.hidden = upcomingOnly && tr.dataset.iso < today;
+  });
+  months.forEach(month=>{
+    const anyVisible = [...month.querySelectorAll("tbody tr")].some(tr=>!tr.hidden);
+    month.hidden = upcomingOnly && !anyVisible;
+  });
+  tabUpcoming.setAttribute("aria-pressed", String(upcomingOnly));
+  tabAll.setAttribute("aria-pressed", String(!upcomingOnly));
+}
+
+tabUpcoming.addEventListener("click", ()=>applyFilter(true));
+tabAll.addEventListener("click", ()=>applyFilter(false));
+applyFilter(true);
 </script>
+
 </body></html>
